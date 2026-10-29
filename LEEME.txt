@@ -1,0 +1,12 @@
+PARCHIS MVC - 2 jugadores en 2 terminales (AMARILLO y ROJO)
+
+1. Descomprime el RAR y abre la carpeta "Parchis" en NetBeans (proyecto Maven, Java 17+).
+2. Clic derecho en MainAmarillo.java > Run File   (ejecutar PRIMERO: crea la partida nueva).
+3. Clic derecho en MainRojo.java > Run File.
+4. (Opcional) MainVisorGuardado.java > Run File: tercera terminal que muestra el archivo guardado.
+
+Cada terminal muestra el juego en vivo. Solo puede jugar el que tiene el turno;
+el otro ve "Esperando el turno de ...". Los jugadores escriben el valor del dado (1-6) y la ficha a mover.
+Con un 5 se saca ficha de casa; con un 6 se repite turno. Gana quien lleva sus 4 fichas a la meta (72 pasos)
+y las dos terminales muestran JUEGO TERMINADO y el ganador.
+El puente entre terminales es el archivo partida.sav (carpeta del proyecto).
