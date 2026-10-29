@@ -37,7 +37,7 @@ public class ControladorJugador {
     }
 
     public List<Ficha> fichasMovibles() { return partida.movibles(); }
-
+    public String motivoSinMovimientos() { return partida.motivoSinMovimientos(); }
     public void moverFicha(int id) throws Exception {
         exigirMiTurno();
         Ficha f = partida.movibles().stream()

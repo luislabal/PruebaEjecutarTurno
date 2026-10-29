@@ -102,6 +102,19 @@ public class Partida {
         return new Estado(turno, ultimoDado, ganador, version, pos);
     }
 
+    public String motivoSinMovimientos() {
+        if (ganador != null || !movibles().isEmpty()) return null;
+        boolean hayEnCasa = false, hayEnJuego = false;
+        for (Ficha f : fichas.get(turno)) {
+            if (f.enMeta()) continue;
+            if (f.enCasa()) hayEnCasa = true; else hayEnJuego = true;
+        }
+        if (hayEnCasa && !hayEnJuego)
+            return "No se puede mover: todas tus fichas estan en casa y necesitas sacar un 5 para sacar una";
+        if (hayEnCasa)
+            return "No se puede mover: con un " + ultimoDado + " ninguna ficha en juego puede avanzar sin pasarse de la meta, y para sacar una de casa necesitas un 5.";
+        return "No se puede mover: con un " + ultimoDado + " ninguna ficha puede avanzar sin pasarse de la meta (hay que llegar con la cuenta exacta).";
+    }
     public void importar(Estado e) {
         this.turno = e.turno();
         this.ultimoDado = e.ultimoDado();

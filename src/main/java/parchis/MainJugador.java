@@ -55,7 +55,8 @@ public class MainJugador {
     private static void jugarTurno(ControladorJugador ctrl, BufferedReader in) throws Exception {
         List<Ficha> opciones = ctrl.fichasMovibles();
         if (opciones.isEmpty()) {
-            System.out.println("Sin movimientos. Se pasa el turno.");
+            System.out.println(ctrl.motivoSinMovimientos());
+            System.out.println("Se pasa el turno.");    
             ctrl.pasarTurno();
             return;
         }
@@ -69,7 +70,7 @@ public class MainJugador {
             catch (IllegalArgumentException e) { System.out.println("Opcion no valida."); }
         }
     }
-
+    
     private static void dibujar(Partida p, Color mi) {
         System.out.println("\n===== PARCHIS - Jugador " + mi + " =====");
         System.out.println("Turno: " + p.getTurno() + " | Ultimo dado: " + p.getUltimoDado());
